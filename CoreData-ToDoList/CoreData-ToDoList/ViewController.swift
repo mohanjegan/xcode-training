@@ -122,6 +122,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }*/
     
+    
+    
+    
+    //swipe action buttons
+    
+    
+    
+    
+    
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
@@ -181,6 +190,44 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return[deleteAction, editAction]
     }
     
+    
+    
+    //swap rows
+    
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        
+        models.swapAt(sourceIndexPath.row, destinationIndexPath.row)
+        tableView.isEditing = false
+    }
+    
+    
+    //long press to swap
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //tableView.deselectRow(at: indexPath, animated: true)
+        let longPressGesture = UILongPressGestureRecognizer()
+        self.tableView.addGestureRecognizer(longPressGesture)
+        longPressGesture.addTarget(self, action: #selector(didTapSort))
+        
+    }
+    
+    
+    
+    @objc func didTapSort(){
+        tableView.isEditing = true
+        /*if tableView.isEditing{
+            tableView.isEditing = false
+        }
+        else{
+            tableView.isEditing = true
+        }*/
+        
+    }
     
     
     
