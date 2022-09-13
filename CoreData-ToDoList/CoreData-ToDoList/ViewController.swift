@@ -23,6 +23,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        home()
+       
+    }
+
+    func home(){
         title = "CoreData-ToDoList"
         view.addSubview(tableView)
         getAllitems()
@@ -32,7 +37,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAdd))
     }
-
+    
+    
+    
     @objc private func didTapAdd(){
         let alert = UIAlertController(title: "New Item", message: "Enter New Item", preferredStyle: .alert)
         alert.addTextField(configurationHandler: nil)
@@ -89,7 +96,31 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return.delete
+    }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            tableView.beginUpdates()
+            
+            tableView.deselectRow(at: indexPath, animated: true)
+            let item = models[indexPath.row]
+            
+            let sheet = UIAlertController(title: "Confirm Delete", message: nil, preferredStyle: .actionSheet)
+            sheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            
+            sheet.addAction(UIAlertAction(title: "Confirm", style: .destructive, handler:{ [weak self] _ in
+                self?.deleteitem(item: item)
+            }))
+            
+            present(sheet, animated: true)
+            
+            tableView.endUpdates()
+            
+            
+        }
+    }
     
     
     
