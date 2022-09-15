@@ -1,0 +1,24 @@
+PODS:
+  - SPPermissions/Camera (5.5.8):
+    - SPPermissions/Core
+  - SPPermissions/Core (5.5.8)
+  - SPPermissions/Location (5.5.8):
+    - SPPermissions/Core
+  - SPPermissions/Microphone (5.5.8):
+    - SPPermissions/Core
+
+DEPENDENCIES:
+  - SPPermissions/Camera
+  - SPPermissions/Location
+  - SPPermissions/Microphone
+
+SPEC REPOS:
+  trunk:
+    - SPPermissions
+
+SPEC CHECKSUMS:
+  SPPermissions: 77d05b0b8489f4c3faefa47317d5af0179c2bfd1
+
+PODFILE CHECKSUM: 90e5c9fefaf20ce6aea9ffce0897b8dfc47e9491
+
+COCOAPODS: 1.11.3
