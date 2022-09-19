@@ -6,7 +6,17 @@
 //
 
 import UIKit
+
+private var models = [User_Details]()
+
 class LoginTableViewController: UITableViewController {
+    
+    struct Credential: Codable{
+        var email:String
+        var password: String
+    }
+    
+//    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
@@ -63,7 +73,9 @@ extension LoginTableViewController{
                     print("Okay clicked!")
                 }])
             }else{
-                // Navigation - Home Screen
+                validateUser()
+//                checkId(logemail: email, logpassword: password)
+//                Navigation - Home Screen
             }
         }else{
             openAlert(title: "Alert", message: "Please add detail.", alertStyle: .alert, actionTitles: ["Okay"], actionStyles: [.default], actions: [{ _ in
@@ -71,5 +83,67 @@ extension LoginTableViewController{
             }])
         }
     }
+ //coredata
+//    func checkId(logemail: String, logpassword: String) {
+//
+//        do {
+//
+//                   try context.fetch(User_Details.fetchRequest())
+//            DispatchQueue.main.async { [self] in
+//                    let item = User_Details(context: context)
+//                    if(item.email == logemail)
+//                    {
+//                        if(item.password == logpassword){
+//                            print("logged in")
+//                        }
+//                        else{
+//                            print("password incorrect")
+//                        }
+//                    }
+//                    else{
+//                        print("invalid email")
+//                    }
+//                   }
+//               }
+//               catch  {
+//                   //error
+//               }
+//    }
+    
+    
+    func validateUser(){
+        if let email = txtEmail.text, let password = txtPassword.text
+        {
+           let data = UserDefaults.standard.value(forKey: "credentials") as! Data
+        if let users = try? PropertyListDecoder().decode(Array<Credential>.self, from: data){
+            
+            let credential = Credential(email: email, password: password)
+            
+            for user in users{
+                if user.email == credential.email{
+                    if user.password == credential.password{
+                      //gotowelcome page
+                        print("welcome")
+                        
+                        break
+                    }else{
+                        print("wrong password")
+                        openAlert(title: "Alert", message: "Wrong password", alertStyle: .alert, actionTitles: ["Okay"], actionStyles: [.default], actions: [{ _ in
+                            print("Okay clicked!")
+                        }])
+                    }
+                }else{
+                    print("invalid email")
+                    openAlert(title: "Alert", message: "email not found", alertStyle: .alert, actionTitles: ["Okay"], actionStyles: [.default], actions: [{ _ in
+                        print("Okay clicked!")
+                    }])
+                }
+            }
+        }
+        }else{
+            print("error")
+        }
+}
+
 }
 

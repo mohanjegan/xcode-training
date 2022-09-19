@@ -7,13 +7,25 @@
 
 import UIKit
 
+//private var models = [User_Details]()
+
 class SignupViewController: UITableViewController {
+    
+    struct Credential: Codable{
+        var email:String
+        var password: String
+    }
+    
+//    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
 
     @IBOutlet weak var imgProfile: UIImageView!
     @IBOutlet weak var txtUsername: UITextField!
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var txtConPassword: UITextField!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,20 +46,46 @@ class SignupViewController: UITableViewController {
             if let email = txtEmail.text, let password = txtPassword.text, let username = txtUsername.text, let conPassword = txtConPassword.text{
                 if username == ""{
                     print("Please enter username")
+                    openAlert(title: "Alert", message: "Please enter username", alertStyle: .alert, actionTitles: ["Okay"], actionStyles: [.default], actions: [{_ in }])
                 }else if !email.validateEmailId(){
                     openAlert(title: "Alert", message: "Please enter valid email", alertStyle: .alert, actionTitles: ["Okay"], actionStyles: [.default], actions: [{_ in }])
                     print("email is not valid")
+                }else if password == ""{
+                    print("Please enter the password")
+                    openAlert(title: "Alert", message: "Please enter the password", alertStyle: .alert, actionTitles: ["Okay"], actionStyles: [.default], actions: [{_ in }])
                 }else if !password.validatePassword(){
                     print("Password is not valid")
+                    openAlert(title: "Alert", message: "Password is not valid", alertStyle: .alert, actionTitles: ["Okay"], actionStyles: [.default], actions: [{_ in }])
                 } else{
                     if conPassword == ""{
                         print("Please confirm password")
+                        openAlert(title: "Alert", message: "Please confirm your password", alertStyle: .alert, actionTitles: ["Okay"], actionStyles: [.default], actions: [{_ in }])
                     }else{
                         if password == conPassword{
                             // navigation code
-                            print("Navigation code Yeah!")
+                            print("Done Navigate to login page")
+                            
+//                            createitem(regname: username, regemail: email, regpassword: password)
+                            
+                            
+                    //store values in user defaults
+                            if let data = UserDefaults.standard.value(forKey: "credentials") as? Data, let credentials:[Credential] = try? PropertyListDecoder().decode(Array<Credential>.self, from: data){
+                                var users = credentials
+                                users.append(Credential(email: email, password: password))
+                                let encodeData = try? PropertyListEncoder().encode(users)
+                                UserDefaults.standard.set(encodeData, forKey: "credentials")
+                                //print(credentials)
+                            }else{
+                                let credential = Credential(email: email, password: password)
+                                let encodeData = try? PropertyListEncoder().encode([credential])
+                                UserDefaults.standard.set(encodeData, forKey: "credentials")
+                            }
+                            self.navigationController?.popViewController(animated: true)
+//                            openAlert(title: "Alert", message: "Signup successfull", alertStyle: .alert, actionTitles: ["Okay"], actionStyles: [.default], actions: [{_ in }])
+                            
                         }else{
                             print("password does not match")
+                            openAlert(title: "Alert", message: "password does not match", alertStyle: .alert, actionTitles: ["Okay"], actionStyles: [.default], actions: [{_ in }])
                         }
                     }
                 }
@@ -97,4 +135,39 @@ extension SignupViewController: UINavigationControllerDelegate, UIImagePickerCon
         }
         dismiss(animated: true)
     }
+
+
+    //CoreData
+    
+    
+//    func getAllitems() {
+//
+//        do {
+//            try context.fetch(User_Details.fetchRequest())
+//            DispatchQueue.main.async {
+//                self.tableView.reloadData()
+//            }
+//        }
+//        catch  {
+//            //error
+//        }
+//    }
+//
+//
+//
+//        func createitem(regname: String, regemail: String, regpassword: String) {
+//
+//            let newItem = User_Details(context: context)
+//            newItem.name = regname
+//            newItem.email = regemail
+//            newItem.password = regpassword
+//
+//            do {
+//                try context.save()
+//                print("item saved")
+//            } catch  {
+//    //error
+//            }
+//        }
+
 }
