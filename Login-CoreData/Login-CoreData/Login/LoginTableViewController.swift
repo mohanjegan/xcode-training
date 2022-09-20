@@ -65,7 +65,7 @@ extension LoginTableViewController{
     fileprivate func ValidationCode() {
         if let email = txtEmail.text, let password = txtPassword.text{
             if !email.validateEmailId(){
-                openAlert(title: "Alert", message: "Email address not found.", alertStyle: .alert, actionTitles: ["Okay"], actionStyles: [.default], actions: [{ _ in
+                openAlert(title: "Alert", message: "Invalid Email", alertStyle: .alert, actionTitles: ["Okay"], actionStyles: [.default], actions: [{ _ in
                     print("Okay clicked!")
                 }])
             }else if !password.validatePassword(){

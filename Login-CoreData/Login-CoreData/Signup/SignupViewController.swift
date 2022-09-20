@@ -101,6 +101,9 @@ class SignupViewController: UITableViewController {
     @IBAction func btnLoginClicked(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
+    @IBAction func btnBackClicked(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UIScreen.main.bounds.height
