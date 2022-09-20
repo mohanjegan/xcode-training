@@ -1,5 +1,5 @@
 //
-//  WelcomeViewController.swift
+//  WelcomeControllerViewController.swift
 //  Login-CoreData
 //
 //  Created by Mohan on 20/09/22.
@@ -7,16 +7,14 @@
 
 import UIKit
 
-class WelcomeViewController: UIViewController {
+class WelcomeControllerViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func btnSignoutClicked(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
-    }
 
     /*
     // MARK: - Navigation

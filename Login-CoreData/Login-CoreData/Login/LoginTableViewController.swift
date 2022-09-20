@@ -124,7 +124,7 @@ extension LoginTableViewController{
                     if user.password == credential.password{
                       //gotowelcome page
                         print("welcome")
-                        
+                        welcome()
                         break
                     }else{
                         print("wrong password")
@@ -145,5 +145,13 @@ extension LoginTableViewController{
         }
 }
 
+    func welcome(){
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "WelcomeViewControllerID")
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+        
+    }
 }
 
