@@ -8,34 +8,37 @@
 import UIKit
 
 class BirthdateViewController: UIViewController {
+    
     var name = ""
+    var imageIcon = UIImageView()
+    
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var brthDateTxt: UITextField!
     let datepicker = UIDatePicker()
     override func viewDidLoad() {
         super.viewDidLoad()
-        nextButton.layer.cornerRadius = 25
+        nextButton.layer.cornerRadius = 20
         nextButton.layer.masksToBounds = true
         brthDateTxt.layer.cornerRadius = 25
         brthDateTxt.layer.masksToBounds = true
         title = "Sign Up"
-        
         brthDateTxt.inputView = datepicker
-        brthDateTxt.textAlignment = .center
         createDatePicker()
         //placeholder icon on textfield
+        imageIcon.image = UIImage(systemName: "calendar.badge.plus")
+        let contentView = UIView()
+        contentView.addSubview(imageIcon)
+        
+        contentView.frame = CGRect(x: 0, y: 0, width: UIImage(systemName: "calendar.badge.plus")!.size.width, height: UIImage(systemName: "calendar.badge.plus")!.size.height)
+        
+        imageIcon.frame = CGRect(x: -10, y: 0, width: UIImage(systemName: "calendar.badge.plus")!.size.width, height: UIImage(systemName: "calendar.badge.plus")!.size.height)
         brthDateTxt.rightViewMode = .always
-        let rightView  = UIImageView(frame: CGRect(x: brthDateTxt.frame.width-30, y: brthDateTxt.frame.height/2-10, width: 25, height: 20))
-        rightView.tintColor = .black
-        rightView.image = UIImage(systemName: "calendar.badge.plus")
-        brthDateTxt.addSubview(rightView)
+        brthDateTxt.rightView = contentView
+        contentView.tintColor = .black
     }
     @IBAction func btnNextTapped(_ sender: Any) {
-        
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let vc = storyboard.instantiateViewController(identifier: "PasswordViewControllerID")
-//        self.navigationController?.pushViewController(vc, animated: true)
-        performSegue(withIdentifier: "goToNext", sender: self)
+
+        Validation()
     }
     
     @IBAction func skipBtnTapped(_ sender: Any) {
@@ -43,6 +46,19 @@ class BirthdateViewController: UIViewController {
 //        let vc = storyboard.instantiateViewController(identifier: "WelcomeViewControllerID")
 //        self.navigationController?.pushViewController(vc, animated: true)
         performSegue(withIdentifier: "goToWelcome", sender: self)
+    }
+    
+    fileprivate func Validation() {
+        if let name = brthDateTxt.text{
+            if name == ""{
+                openAlert(title: "Alert", message: "Please add Date of Birth.", alertStyle: .alert, actionTitles: ["Okay"], actionStyles: [.default], actions: [{ _ in
+                    print("Okay clicked!")
+                }])
+            }
+            else{
+                performSegue(withIdentifier: "goToNext", sender: self)
+            }
+        }
     }
     
         func createDatePicker(){
@@ -56,16 +72,11 @@ class BirthdateViewController: UIViewController {
     
             //assign toolbar
             brthDateTxt.inputAccessoryView = toolbar
-    
-            //assign datepicker to text field
             brthDateTxt.inputView = datepicker
-            
-            //date picker style
             datepicker.preferredDatePickerStyle = .wheels
-            
-            //data picker mode
             datepicker.datePickerMode = .date
-    
+            datepicker.maximumDate = Date()
+
         }
     
     @objc func donePressed(){

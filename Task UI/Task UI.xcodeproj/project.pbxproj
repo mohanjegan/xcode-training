@@ -13,6 +13,8 @@
 		7838F5EC28D9F2A100DE4EB7 /* BirthdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7838F5EB28D9F2A100DE4EB7 /* BirthdateViewController.swift */; };
 		7838F5EF28D9F34600DE4EB7 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7838F5EE28D9F34600DE4EB7 /* PasswordViewController.swift */; };
 		7838F5F228D9F41500DE4EB7 /* ConPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7838F5F128D9F41500DE4EB7 /* ConPassViewController.swift */; };
+		785D974128DB1AAC00C596A3 /* String + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785D973F28DB1AAC00C596A3 /* String + Extension.swift */; };
+		785D974228DB1AAC00C596A3 /* UIAlertController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785D974028DB1AAC00C596A3 /* UIAlertController + Extension.swift */; };
 		78A867E728D9938500118F41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A867E628D9938500118F41 /* AppDelegate.swift */; };
 		78A867E928D9938500118F41 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A867E828D9938500118F41 /* SceneDelegate.swift */; };
 		78A867EB28D9938500118F41 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A867EA28D9938500118F41 /* ViewController.swift */; };
@@ -29,6 +31,8 @@
 		7838F5EB28D9F2A100DE4EB7 /* BirthdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdateViewController.swift; sourceTree = "<group>"; };
 		7838F5EE28D9F34600DE4EB7 /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
 		7838F5F128D9F41500DE4EB7 /* ConPassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConPassViewController.swift; sourceTree = "<group>"; };
+		785D973F28DB1AAC00C596A3 /* String + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String + Extension.swift"; sourceTree = "<group>"; };
+		785D974028DB1AAC00C596A3 /* UIAlertController + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController + Extension.swift"; sourceTree = "<group>"; };
 		78A867E328D9938500118F41 /* Task UI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Task UI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		78A867E628D9938500118F41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78A867E828D9938500118F41 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +74,8 @@
 		78A867E528D9938500118F41 /* Task UI */ = {
 			isa = PBXGroup;
 			children = (
+				785D973F28DB1AAC00C596A3 /* String + Extension.swift */,
+				785D974028DB1AAC00C596A3 /* UIAlertController + Extension.swift */,
 				78A867E628D9938500118F41 /* AppDelegate.swift */,
 				78A867E828D9938500118F41 /* SceneDelegate.swift */,
 				78A867EA28D9938500118F41 /* ViewController.swift */,
@@ -165,6 +171,8 @@
 				7838F5F228D9F41500DE4EB7 /* ConPassViewController.swift in Sources */,
 				7838F5E928D9F19200DE4EB7 /* SkillsViewController.swift in Sources */,
 				78A867E928D9938500118F41 /* SceneDelegate.swift in Sources */,
+				785D974128DB1AAC00C596A3 /* String + Extension.swift in Sources */,
+				785D974228DB1AAC00C596A3 /* UIAlertController + Extension.swift in Sources */,
 				7838F5EC28D9F2A100DE4EB7 /* BirthdateViewController.swift in Sources */,
 				7838F5E628D9EFB000DE4EB7 /* NameViewController.swift in Sources */,
 				7838F5EF28D9F34600DE4EB7 /* PasswordViewController.swift in Sources */,
