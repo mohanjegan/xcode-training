@@ -12,7 +12,7 @@ struct HeroStats: Decodable {
     let primary_attr: String
     let attack_type: String
     let base_health: Int
-    let icon: String
+    let img: String
 }
 //
 //extension UIImageView {

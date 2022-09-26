@@ -24,7 +24,7 @@ class HeroViewController: UIViewController {
         attackLbl.text = hero?.attack_type
         healthLbl.text = "\((hero?.base_health)!)"
         
-        let urlString = "https://api.opendota.com/"+(hero?.icon)!
+        let urlString = "https://api.opendota.com"+(hero?.img)!
         let url = URL(string: urlString)
         
         imageView.downloaded(from: url!)
