@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wPV-6f-xYg">
-                                <rect key="frame" x="159" y="430" width="96" height="36"/>
+                                <rect key="frame" x="107" y="473" width="200" height="36"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Show Alert">
@@ -28,7 +28,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d0W-U5-Tj3">
-                                <rect key="frame" x="124" y="496" width="166" height="36"/>
+                                <rect key="frame" x="107" y="559" width="200" height="36"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Show Action Sheet">
@@ -38,16 +38,52 @@
                                     <action selector="didTapActionSheet:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DvJ-sC-mRS"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="adl-yL-keG">
+                                <rect key="frame" x="107" y="387" width="200" height="36"/>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Show Custom Toast">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapCustomToast:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kVF-h7-uFk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qxf-Jq-zTA">
+                                <rect key="frame" x="107" y="301" width="200" height="36"/>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Show Toast">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapToast:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hgf-QZ-Fs0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="d0W-U5-Tj3" firstAttribute="centerX" secondItem="wPV-6f-xYg" secondAttribute="centerX" id="TWm-Z6-VNR"/>
-                            <constraint firstItem="wPV-6f-xYg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="TrU-pp-Tuf"/>
-                            <constraint firstItem="d0W-U5-Tj3" firstAttribute="top" secondItem="wPV-6f-xYg" secondAttribute="bottom" constant="30" id="VhX-WN-aUt"/>
-                            <constraint firstItem="wPV-6f-xYg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dgN-0i-h4A"/>
+                            <constraint firstItem="wPV-6f-xYg" firstAttribute="leading" secondItem="d0W-U5-Tj3" secondAttribute="leading" id="9Af-aF-P7G"/>
+                            <constraint firstItem="qxf-Jq-zTA" firstAttribute="leading" secondItem="adl-yL-keG" secondAttribute="leading" id="CPQ-u6-fPi"/>
+                            <constraint firstItem="wPV-6f-xYg" firstAttribute="top" secondItem="adl-yL-keG" secondAttribute="bottom" constant="50" id="EUs-RO-90v"/>
+                            <constraint firstItem="adl-yL-keG" firstAttribute="leading" secondItem="wPV-6f-xYg" secondAttribute="leading" id="GRc-CS-Q2v"/>
+                            <constraint firstItem="qxf-Jq-zTA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="107" id="H4w-Wc-Uws"/>
+                            <constraint firstItem="adl-yL-keG" firstAttribute="top" secondItem="qxf-Jq-zTA" secondAttribute="bottom" constant="50" id="W38-N3-YSA"/>
+                            <constraint firstItem="qxf-Jq-zTA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="a0D-bT-HvJ"/>
+                            <constraint firstItem="d0W-U5-Tj3" firstAttribute="top" secondItem="wPV-6f-xYg" secondAttribute="bottom" constant="50" id="cpQ-RQ-roN"/>
+                            <constraint firstItem="adl-yL-keG" firstAttribute="trailing" secondItem="wPV-6f-xYg" secondAttribute="trailing" id="h90-J1-Ufg"/>
+                            <constraint firstItem="qxf-Jq-zTA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="257" id="hKv-gr-Qwd"/>
+                            <constraint firstItem="wPV-6f-xYg" firstAttribute="trailing" secondItem="d0W-U5-Tj3" secondAttribute="trailing" id="kiA-kC-h1i"/>
+                            <constraint firstItem="qxf-Jq-zTA" firstAttribute="trailing" secondItem="adl-yL-keG" secondAttribute="trailing" id="wQd-ax-N5S"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btnActionSheetAlert" destination="d0W-U5-Tj3" id="MM5-yq-2AO"/>
+                        <outlet property="btnAlert" destination="wPV-6f-xYg" id="Os1-QS-6nu"/>
+                        <outlet property="btnCustomToast" destination="adl-yL-keG" id="Uxa-iI-9Dc"/>
+                        <outlet property="btnToast" destination="qxf-Jq-zTA" id="6ku-Ll-eml"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
